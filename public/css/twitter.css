@@ -1,0 +1,66 @@
+.tweetsContainer {
+	    padding: 20px;
+    	background: #abc;
+    	border:1px solid #ccc;
+        overflow-y: scroll;
+        max-height:670px;
+    	max-width: 600px;
+    	margin: 0 auto;
+}
+.tweetsContainer h2 {
+	    margin-top: 0;
+    	margin-bottom: 20px;
+    	text-align: center;
+}
+.tweets {
+	margin: 10px auto;
+	display: block;
+  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 16px;
+  border-color: #eee #ddd #bbb;
+  background-color: white;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  margin: 10px auto;
+  padding: 10px;
+  max-width: 580px;
+	
+}
+
+.tweets span {
+	display: inline-block;
+	padding: 0 5px;
+}
+.tweets .name {
+	font-weight: bold;
+}
+
+.navbar-form {
+	padding: 0;
+}
+.error{
+	font-style: italic;
+	color:#f11;
+}
+.add-on .input-group-btn > .btn {
+  border-left-width:0;left:-2px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+/* stop the glowing blue shadow */
+.add-on .form-control:focus {
+ box-shadow:none;
+ -webkit-box-shadow:none; 
+ border-color:#cccccc; 
+}
+.form-control{width:20%}
+.navbar-nav > li > a {
+  border-right: 1px solid #ddd;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+.navbar-nav:last-child{ border-right:0}

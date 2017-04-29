@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>Create a twitter feed </title>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../public/css/twitter.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" differ></script>
+		<script type="text/javascript" src="../../public/js/twitter.js" differ></script>
+	</head>
+	<body>
+            <div class ="tweetsContainer">
+                <h2>Twitter Feeds </h2>
+                <div class="navbar-form" role="search">
+                    <div class="input-group add-on ">
+                      <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                      <div class="input-group-btn">
+                        <button class="btn btn-default searchTweets"  type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                      </div>
+                    </div>
+
+
+                    <span class="error hide">Please enter #tag</span>
+                </div>
+                <div id="feed">
+                    <p class="initial"> Please enter a #tag in the searchbox.</p>
+                </div>
+            </div>
+	</body>
+    
+        <script>
+        var apiUrl = 'http://localhost:8888/public/gets/tweets';
+        var searchUrl = 'http://localhost:8888/public/gets/searchTags';
+        </script>
+</html>
+

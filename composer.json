@@ -1,0 +1,18 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Batch\\": "app/batch",
+            "Services\\": "app/services",
+            "Dao\\": "app/dao",
+            "Constants\\": "app/constants",
+            "Exceptions\\":"public/exceptions",
+	    "Validators\\":"app/validators"
+        }
+    },
+    "require": {
+        "slim/slim": "2.*",
+        "slim/views": "0.1.*",
+        "twig/twig": "1.18.*",
+        "j7mbo/twitter-api-php": "dev-master"
+    }
+}
