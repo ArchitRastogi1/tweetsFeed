@@ -8,6 +8,7 @@ use Exceptions\TwitterFeedException;
 use DateTime;
 use DateTimeZone;
 use TwitterAPIExchange;
+use Exception;
 
 class TweetsFeedService {
 
@@ -49,9 +50,13 @@ class TweetsFeedService {
 
       // Request for fetching tweets
       $twitter = new TwitterAPIExchange($settings);
-      $tweetsData = $twitter->setGetfield($getfield)
+      try {
+        $tweetsData = $twitter->setGetfield($getfield)
                    ->buildOauth($url, $requestMethod)
                    ->performRequest();
+      } catch(Exception $ex) {
+          throw new TwitterFeedException($ex);
+      }
 
       $tweetsRecordArr = json_decode($tweetsData,true);
       if(isset($tweetsRecordArr['errors'])) {
