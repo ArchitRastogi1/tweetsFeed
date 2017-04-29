@@ -10,7 +10,7 @@ About the application -
 6 - There is a clean up job which will clean data .
 
 
-Technologies used - PHP,Slim, JQuery, html, css, ajax, json 
+Technologies used - PHP,Slim, JQuery, html,twig, css, ajax, json 
 
 Project Architecture - 
 
@@ -35,5 +35,14 @@ Features -
 3 - Proper error handling.
 4 - Cron job for clean up of database.
 
+Folders - 
+
+1 - routes - (for controllers)
+2 - views - (for twig templates)
+3 - services - (for Services )
+4 - daos - (for database interaction)
+5 - constant - to hold constant values
+6 - batch - to hold cron jobs
+7 - validators - holds data validator files
 
 
