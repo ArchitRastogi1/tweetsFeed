@@ -10,7 +10,7 @@ About the application -
 6 - There is a clean up job which will clean data .
 
 
-Technologies used - PHP,Slim, JQuery, html,twig, css, ajax, json 
+Technologies used - PHP,Slim,Mysql, JQuery, html,twig, css, ajax, json 
 
 Project Architecture - 
 
