@@ -55,12 +55,11 @@ class TweetsFeedDao {
         }
     }
     
-    public function fetchNewTweetsFromDB($lastId,$hashTag) {
+    public function fetchTweetsFromDB($hashTag) {
         try {
-            $selectQuery = "select tweetId,text,time,name,username,userurl from TweetsFeed where tweetId > :tweetId and hashTag = :hashTag order by tweetId ";
+            $selectQuery = "select tweetId,text,time,name,username,userurl from TweetsFeed where hashTag = :hashTag order by tweetId desc";
             $selectPrep = $this->db->prepare($selectQuery);
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);                        
-            $selectPrep->bindValue(":tweetId", $lastId,PDO::PARAM_STR);
             $selectPrep->bindValue(":hashTag",$hashTag,PDO::PARAM_STR);            
             $selectPrep->execute();
             $tweetsData = $selectPrep->fetchAll(PDO::FETCH_ASSOC);

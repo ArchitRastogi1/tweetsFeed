@@ -7,7 +7,6 @@ use Validators\GetTweetsValidator;
 $app->get('/gets/tweets', function() use ($app) {
     $response = $app->response();
     $hashTag = $app->request->get('hashTag');
-    $lastId = $app->request->get('lastId');    
     
     $validator = new GetTweetsValidator();
     $validatorResp = $validator->validateTweetGetData($hashTag);
@@ -18,7 +17,7 @@ $app->get('/gets/tweets', function() use ($app) {
     
     try {
         $tweetsFeedService = new TweetsFeedService;        
-        $tweetsData = $tweetsFeedService->fetchNewTweetsFromDB($hashTag,$lastId);
+        $tweetsData = $tweetsFeedService->fetchTweetsFromDB($hashTag);
     } catch(TwitterFeedException $ex) {
         $app->render('error.html.twig',array('error' => $ex->getMessage()));
         $response->status(500);

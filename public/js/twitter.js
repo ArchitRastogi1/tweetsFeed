@@ -14,9 +14,9 @@ $(function() {
 				}
 				$feed.html(htm);
 			}else {
-                            $('.initial').hide();
-                            htm=htm +'<div>No New Tweets Found.</div>';
+                            htm=htm +'<p>No Tweets Found</p>';
                             $feed.html(htm);
+                       
                         }
 		
 	};
@@ -24,8 +24,7 @@ $(function() {
 		$.ajax({
 			url: url,
 			data: {
-				hashTag : sendData,
-                                lastId : lastUid 
+				hashTag : sendData
 			},
 			beforeSend: function( xhr ) {
 				//xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
@@ -57,14 +56,15 @@ $(function() {
 
 	if($feed.length) {
 		var counter = 0,
-                    uid = lastUid,
-                    searchVal = $search.val();
+                    uid = lastUid;
                 var i = setInterval(function(){
-                var value = $('#srch-term').val();
-                    makeAJx(apiUrl,value,lastUid);    
-		    if(counter === 10) {
-		        clearInterval(i);
-		    }
-		},6000);
+                    var value = $search.val();
+                    if(value && !$search.is(':focus')) {
+                        makeAJx(apiUrl,value,lastUid);  
+                    }
+                    if(counter === 10) {
+                            clearInterval(i);
+                    }
+                },6000);
 	}	
 });

@@ -93,12 +93,12 @@ class TweetsFeedService {
         return $date->format('Y:m:d:h:i:s');
     }
     
-    public function fetchNewTweetsFromDB($hashTag,$lastId) {
+    public function fetchTweetsFromDB($hashTag) {
         if($hashTag[0] != '#') {
             $hashTag = '#'.$hashTag;
         }
         try {
-            $tweetsData = $this->tweetsFeedDao->fetchNewTweetsFromDB($lastId,$hashTag);
+            $tweetsData = $this->tweetsFeedDao->fetchTweetsFromDB($hashTag);
         } catch(DBException $ex) {
             throw new TwitterFeedException($ex);
         }
@@ -114,7 +114,8 @@ class TweetsFeedService {
             $hashTag = '#'.$hashTag;
         }
         try {
-            $tweetsData = $this->processNewTwitterFeed($hashTag);
+            $this->processNewTwitterFeed($hashTag);
+            $tweetsData = $this->fetchTweetsFromDB($hashTag);
         } catch(DBException $ex) {
             throw new TwitterFeedException($ex);
         }
